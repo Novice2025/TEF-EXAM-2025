@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEF Canada Exam Information</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .exam-box {
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .exam-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .exam-box:active {
+      transform: translateY(0);
+    }
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .tab-content {
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-blue-700 text-white py-6 shadow-lg">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl md:text-4xl font-bold text-center">
+        <i class="fas fa-language mr-2"></i> TEF Canada Exam Guide
+      </h1>
+      <p class="text-center mt-2 text-blue-100">Everything you need to know about the French proficiency test</p>
+    </div>
+  </header>
+
+  <!-- Tabs Navigation -->
+  <nav class="bg-blue-600 text-white sticky top-0 z-10 shadow-md">
+    <div class="container mx-auto flex overflow-x-auto">
+      <button class="tab-button active px-6 py-4 font-medium whitespace-nowrap flex items-center" onclick="openTab(event, 'overview')">
+        <i class="fas fa-info-circle mr-2"></i> Overview
+      </button>
+      <button class="tab-button px-6 py-4 font-medium whitespace-nowrap flex items-center" onclick="openTab(event, 'reading')">
+        <i class="fas fa-book-reader mr-2"></i> Reading
+      </button>
+      <button class="tab-button px-6 py-4 font-medium whitespace-nowrap flex items-center" onclick="openTab(event, 'listening')">
+        <i class="fas fa-headphones mr-2"></i> Listening
+      </button>
+      <button class="tab-button px-6 py-4 font-medium whitespace-nowrap flex items-center" onclick="openTab(event, 'writing')">
+        <i class="fas fa-pen-fancy mr-2"></i> Writing
+      </button>
+      <button class="tab-button px-6 py-4 font-medium whitespace-nowrap flex items-center" onclick="openTab(event, 'speaking')">
+        <i class="fas fa-comments mr-2"></i> Speaking
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+
+    <!-- TAB: OVERVIEW -->
+    <div id="overview" class="tab-content active">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Exam Duration Box -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-blue-500" 
+             onclick="showModal('Exam Duration', 'The TEF Canada exam can be completed in just one day, testing all four language skills: reading, writing, listening, and speaking.')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-blue-100 text-blue-600">
+              <i class="fas fa-clock text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Exam Duration</h3>
+          </div>
+          <p class="text-gray-600">The complete exam can be finished in a single day, testing all four language skills.</p>
+          <div class="mt-4 flex justify-between items-center">
+            <span class="text-sm text-blue-600 font-medium"><i class="fas fa-calendar-day mr-1"></i> 1 Day</span>
+            <span class="text-sm text-gray-500">Click for details</span>
+          </div>
+        </div>
+
+        <!-- Skills Tested Box -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-green-500"
+             onclick="showModal('Skills Tested', 'The TEF Canada evaluates four key language skills: Reading (Compréhension écrite), Writing (Expression écrite), Listening (Compréhension orale), and Speaking (Expression orale).')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-green-100 text-green-600">
+              <i class="fas fa-star text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Skills Tested</h3>
+          </div>
+          <p class="text-gray-600">The exam evaluates four key language skills essential for French proficiency.</p>
+          <div class="mt-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Reading</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Writing</span>
+              <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Listening</span>
+              <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Speaking</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Facts Box -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-purple-500 col-span-1 md:col-span-2"
+             onclick="showModal('Quick Facts', 'The TEF Canada is recognized by Immigration, Refugees and Citizenship Canada (IRCC) for permanent residency applications. The exam is designed to assess your practical ability to communicate in French in everyday situations.')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-purple-100 text-purple-600">
+              <i class="fas fa-lightbulb text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Quick Facts</h3>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center p-3 bg-gray-50 rounded-lg">
+              <div class="text-blue-600 text-2xl font-bold mb-1">4</div>
+              <div class="text-gray-600 text-sm">Sections</div>
+            </div>
+            <div class="text-center p-3 bg-gray-50 rounded-lg">
+              <div class="text-blue-600 text-2xl font-bold mb-1">1</div>
+              <div class="text-gray-600 text-sm">Day Duration</div>
+            </div>
+            <div class="text-center p-3 bg-gray-50 rounded-lg">
+              <div class="text-blue-600 text-2xl font-bold mb-1">160</div>
+              <div class="text-gray-600 text-sm">Total Questions</div>
+            </div>
+            <div class="text-center p-3 bg-gray-50 rounded-lg">
+              <div class="text-blue-600 text-2xl font-bold mb-1">2h45m</div>
+              <div class="text-gray-600 text-sm">Total Time</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: READING -->
+    <div id="reading" class="tab-content">
+      <div class="grid grid-cols-1 gap-6">
+        <!-- Reading Section Overview -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-blue-500"
+             onclick="showModal('Reading Section', 'The reading section consists of 40 multiple-choice questions with 4 options each. You have 60 minutes to complete this section. Unlike some other sections, you can go back and forth between questions during the reading test.')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-blue-100 text-blue-600">
+              <i class="fas fa-book-reader text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Reading Section</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-question-circle mr-2"></i>Questions</h4>
+              <p class="text-gray-700">40 MCQ with 4 options each</p>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-clock mr-2"></i>Duration</h4>
+              <p class="text-gray-700">60 minutes total</p>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-blue-800 mb-2"><i class="fas fa-exchange-alt mr-2"></i>Navigation</h4>
+              <p class="text-gray-700">Can go back and forth</p>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+            <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-info-circle mr-2 text-blue-600"></i>Format</h4>
+            <p class="text-gray-700">You'll read various texts (advertisements, newspaper articles, etc.) and answer comprehension questions about them.</p>
+          </div>
+        </div>
+
+        <!-- Reading Tips -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-green-500"
+             onclick="showModal('Reading Tips', '1. Skim the questions first to know what to look for in the text\n2. Pay attention to keywords in both questions and answers\n3. Manage your time wisely - don\'t spend too long on any one question\n4. For vocabulary questions, look for context clues\n5. Practice with authentic French materials like newspapers and magazines')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-green-100 text-green-600">
+              <i class="fas fa-lightbulb text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Reading Tips & Strategies</h3>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="bg-green-50 p-3 rounded-lg text-center">
+              <i class="fas fa-search text-green-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Skim questions first</p>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg text-center">
+              <i class="fas fa-key text-green-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Watch for keywords</p>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg text-center">
+              <i class="fas fa-hourglass-half text-green-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Time management</p>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg text-center">
+              <i class="fas fa-book-open text-green-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Context clues</p>
+            </div>
+          </div>
+          <div class="mt-4 text-right">
+            <span class="text-sm text-blue-600 font-medium">Click for more tips →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: LISTENING -->
+    <div id="listening" class="tab-content">
+      <div class="grid grid-cols-1 gap-6">
+        <!-- Listening Section Overview -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-yellow-500"
+             onclick="showModal('Listening Section', 'The listening comprehension section consists of 40 multiple-choice questions to be completed in 40 minutes. You will hear each recording only once, and you cannot go back to previous questions after answering. The recordings include conversations, announcements, interviews, and other real-life situations.')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-yellow-100 text-yellow-600">
+              <i class="fas fa-headphones text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Listening Section</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-yellow-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-yellow-800 mb-2"><i class="fas fa-question-circle mr-2"></i>Questions</h4>
+              <p class="text-gray-700">40 MCQ</p>
+            </div>
+            <div class="bg-yellow-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-yellow-800 mb-2"><i class="fas fa-clock mr-2"></i>Duration</h4>
+              <p class="text-gray-700">40 minutes total</p>
+            </div>
+            <div class="bg-yellow-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-yellow-800 mb-2"><i class="fas fa-ban mr-2"></i>Navigation</h4>
+              <p class="text-gray-700">No going back</p>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+            <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-info-circle mr-2 text-yellow-600"></i>Important</h4>
+            <p class="text-gray-700">You will hear each recording only once. Pay close attention as you won't get a second chance!</p>
+          </div>
+        </div>
+
+        <!-- Listening Tips -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-orange-500"
+             onclick="showModal('Listening Tips', '1. Read the questions before the audio starts to know what to listen for\n2. Take quick notes during the recording (you\'ll be provided with paper)\n3. Focus on understanding the main ideas rather than every word\n4. Pay attention to tone of voice and context clues\n5. Practice with French radio, podcasts, and TV shows to improve')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-orange-100 text-orange-600">
+              <i class="fas fa-lightbulb text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Listening Tips & Strategies</h3>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="bg-orange-50 p-3 rounded-lg text-center">
+              <i class="fas fa-eye text-orange-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Preview questions</p>
+            </div>
+            <div class="bg-orange-50 p-3 rounded-lg text-center">
+              <i class="fas fa-pencil-alt text-orange-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Take notes</p>
+            </div>
+            <div class="bg-orange-50 p-3 rounded-lg text-center">
+              <i class="fas fa-brain text-orange-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Main ideas first</p>
+            </div>
+            <div class="bg-orange-50 p-3 rounded-lg text-center">
+              <i class="fas fa-volume-up text-orange-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Tone matters</p>
+            </div>
+          </div>
+          <div class="mt-4 text-right">
+            <span class="text-sm text-blue-600 font-medium">Click for more tips →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: WRITING -->
+    <div id="writing" class="tab-content">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Writing Part A -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-purple-500"
+             onclick="showModal('Writing Part A', 'Section A requires you to write a general report based on a given headline. You have 25 minutes to complete this task. The writing is done on a computer, so typing speed can affect your performance. You\'ll need to continue the headline story in a formal, report-style format. Practice writing concise, clear French with proper structure.')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-purple-100 text-purple-600">
+              <i class="fas fa-pen-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Writing Part A</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <i class="fas fa-clock mt-1 mr-2 text-purple-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Duration</h4>
+                <p class="text-gray-600">25 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-laptop mt-1 mr-2 text-purple-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Format</h4>
+                <p class="text-gray-600">Typed on computer</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-tasks mt-1 mr-2 text-purple-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Task</h4>
+                <p class="text-gray-600">Continue a headline story as a general report</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 p-3 bg-purple-50 rounded-lg">
+            <p class="text-purple-800 text-sm"><i class="fas fa-exclamation-circle mr-1"></i> Typing speed can affect your performance</p>
+          </div>
+        </div>
+
+        <!-- Writing Part B -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-indigo-500"
+             onclick="showModal('Writing Part B', 'Section B is more challenging, requiring you to present an argument in response to a given text. You must write at least 200 words. This task evaluates your ability to structure arguments, use appropriate vocabulary, and maintain coherence in your writing. Practice writing persuasive essays on various topics to prepare.')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-indigo-100 text-indigo-600">
+              <i class="fas fa-pen-fancy text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Writing Part B</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <i class="fas fa-clock mt-1 mr-2 text-indigo-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Duration</h4>
+                <p class="text-gray-600">Longer than Part A</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-scroll mt-1 mr-2 text-indigo-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Word Count</h4>
+                <p class="text-gray-600">Minimum 200 words</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-comment-dots mt-1 mr-2 text-indigo-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Task</h4>
+                <p class="text-gray-600">Present an argument to the given text</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 p-3 bg-indigo-50 rounded-lg">
+            <p class="text-indigo-800 text-sm"><i class="fas fa-exclamation-triangle mr-1"></i> This is the more challenging writing task</p>
+          </div>
+        </div>
+
+        <!-- Writing Tips -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-blue-500 col-span-1 md:col-span-2"
+             onclick="showModal('Writing Tips', '1. Plan your writing before you start (2-3 minutes for outline)\n2. For Part A, use formal language and clear structure\n3. For Part B, develop a clear thesis and support it with examples\n4. Leave time to proofread for grammar and spelling\n5. Practice typing in French to improve speed\n6. Learn common transition words for better flow\n7. Avoid overly complex sentences if unsure of grammar')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-blue-100 text-blue-600">
+              <i class="fas fa-lightbulb text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Writing Tips & Strategies</h3>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="bg-blue-50 p-3 rounded-lg text-center">
+              <i class="fas fa-project-diagram text-blue-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Plan first</p>
+            </div>
+            <div class="bg-blue-50 p-3 rounded-lg text-center">
+              <i class="fas fa-check-double text-blue-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Proofread</p>
+            </div>
+            <div class="bg-blue-50 p-3 rounded-lg text-center">
+              <i class="fas fa-keyboard text-blue-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Practice typing</p>
+            </div>
+            <div class="bg-blue-50 p-3 rounded-lg text-center">
+              <i class="fas fa-random text-blue-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Use transitions</p>
+            </div>
+          </div>
+          <div class="mt-4 text-right">
+            <span class="text-sm text-blue-600 font-medium">Click for more writing tips →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: SPEAKING -->
+    <div id="speaking" class="tab-content">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Speaking Part A -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-red-500"
+             onclick="showModal('Speaking Part A', 'Section A presents you with a poster or advertisement. You have 1 minute to read it, then must call the person to query about the post. This section lasts about 5 minutes and tests your ability to ask questions and seek information in French. Practice with various types of ads to prepare for different scenarios.')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-red-100 text-red-600">
+              <i class="fas fa-ad text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Speaking Part A</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <i class="fas fa-clock mt-1 mr-2 text-red-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Preparation</h4>
+                <p class="text-gray-600">1 minute to read</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-stopwatch mt-1 mr-2 text-red-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Duration</h4>
+                <p class="text-gray-600">5 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-2 text-red-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Task</h4>
+                <p class="text-gray-600">Call to query about a poster/ad</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 p-3 bg-red-50 rounded-lg">
+            <p class="text-red-800 text-sm"><i class="fas fa-info-circle mr-1"></i> Tests ability to ask questions and seek information</p>
+          </div>
+        </div>
+
+        <!-- Speaking Part B -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-pink-500"
+             onclick="showModal('Speaking Part B', 'Section B gives you 1 minute to read a situation, then requires you to influence or convince the examiner who will be insisting on a different viewpoint. The conversation should last about 10 minutes. This tests your ability to argue, persuade, and maintain a discussion in French. Practice debating various topics to prepare.')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-pink-100 text-pink-600">
+              <i class="fas fa-comment-dots text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Speaking Part B</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <i class="fas fa-clock mt-1 mr-2 text-pink-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Preparation</h4>
+                <p class="text-gray-600">1 minute to read</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-stopwatch mt-1 mr-2 text-pink-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Duration</h4>
+                <p class="text-gray-600">10 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-handshake mt-1 mr-2 text-pink-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Task</h4>
+                <p class="text-gray-600">Influence/convince the examiner</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 p-3 bg-pink-50 rounded-lg">
+            <p class="text-pink-800 text-sm"><i class="fas fa-info-circle mr-1"></i> Tests ability to argue and persuade</p>
+          </div>
+        </div>
+
+        <!-- Speaking Tips -->
+        <div class="exam-box bg-white rounded-xl p-6 shadow-md cursor-pointer hover:border-l-4 hover:border-green-500 col-span-1 md:col-span-2"
+             onclick="showModal('Speaking Tips', '1. For Part A, prepare common question phrases in advance\n2. Listen carefully to the examiner\'s responses\n3. For Part B, structure your arguments clearly\n4. Don\'t worry about perfect grammar - focus on communication\n5. Practice with a partner or record yourself\n6. Work on pronunciation of key words\n7. Use fillers like "alors", "eh bien" to buy thinking time\n8. Maintain a natural conversation flow')">
+          <div class="flex items-center mb-4">
+            <div class="skill-icon bg-green-100 text-green-600">
+              <i class="fas fa-lightbulb text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Speaking Tips & Strategies</h3>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="bg-green-50 p-3 rounded-lg text-center">
+              <i class="fas fa-question text-green-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Prepare questions</p>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg text-center">
+              <i class="fas fa-ear-listen text-green-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Active listening</p>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg text-center">
+              <i class="fas fa-bullhorn text-green-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Clear arguments</p>
+            </div>
+            <div class="bg-green-50 p-3 rounded-lg text-center">
+              <i class="fas fa-microphone-alt text-green-600 mb-1"></i>
+              <p class="text-sm text-gray-700">Practice aloud</p>
+            </div>
+          </div>
+          <div class="mt-4 text-right">
+            <span class="text-sm text-blue-600 font-medium">Click for more speaking tips →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-4">
+        <h3 id="modal-title" class="text-xl font-bold text-gray-800"></h3>
+        <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="modal-content" class="text-gray-700"></div>
+      <div class="mt-6 text-right">
+        <button onclick="closeModal()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2023 TEF Canada Exam Guide. All information is for educational purposes only.</p>
+      <div class="mt-4 flex justify-center space-x-4">
+        <a href="#" class="hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab functionality
+    function openTab(evt, tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+      
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+
+    // Modal functionality
+    function showModal(title, content) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-content').textContent = content;
+      document.getElementById('modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
